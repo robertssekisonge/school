@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+.DS_Store
+.env
+.env.*
+coverage
+**/node_modules
+**/.cache
+**/build
+**/.vite
+.git
+.gitignore
+
+

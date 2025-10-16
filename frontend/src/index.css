@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors duration-200;
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Login form animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-3000 {
+  animation-delay: 3s;
+}
+
+@keyframes shield-vibrate {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+.animate-shield-vibrate {
+  animation: shield-vibrate 2s ease-in-out infinite;
+}
+
+/* Enhanced shadow for login form */
+.hover\:shadow-3xl:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(147, 51, 234, 0.1);
+}
+
+/* Loading Dots CSS - Perfect circle rotation */
+.loading-dots-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 24px; /* Reduced from 32px */
+  height: 24px; /* Reduced from 32px */
+  background: transparent; /* No background */
+  border: none; /* No border */
+}
+
+.loading-dot {
+  flex-shrink: 0; /* Prevent dots from shrinking */
+  border-radius: 50%;
+  position: absolute;
+  animation: rotate 2s linear infinite;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+  width: 6px; /* Reduced from 8px */
+  height: 6px; /* Reduced from 8px */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border for polish */
+}
+
+/* Individual dot positions in a perfect circle - 5 dots at 72° intervals */
+.loading-dot:nth-child(1) { 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  animation-delay: 0s; 
+}
+.loading-dot:nth-child(2) { 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  animation-delay: -0.4s; 
+}
+.loading-dot:nth-child(3) { 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  animation-delay: -0.8s; 
+}
+.loading-dot:nth-child(4) { 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  animation-delay: -1.2s; 
+}
+.loading-dot:nth-child(5) { 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  animation-delay: -1.6s; 
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translateX(8px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(8px) rotate(-360deg);
+  }
+}
+
+/* Ensure each dot has distinct colors and visibility with gradient-like appearance */
+.loading-dot:nth-child(1) { 
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important; /* Red gradient */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.loading-dot:nth-child(2) { 
+  background: linear-gradient(135deg, #eab308, #ca8a04) !important; /* Yellow gradient */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.loading-dot:nth-child(3) { 
+  background: linear-gradient(135deg, #22c55e, #16a34a) !important; /* Green gradient */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.loading-dot:nth-child(4) { 
+  background: linear-gradient(135deg, #16a34a, #15803d) !important; /* Darker green gradient */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.loading-dot:nth-child(5) { 
+  background: linear-gradient(135deg, #3b82f6, #2563eb) !important; /* Blue gradient */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive sizing */
+.loading-dots-container.w-2 .loading-dot {
+  width: 6px;
+  height: 6px;
+}
+
+.loading-dots-container.w-3 .loading-dot {
+  width: 8px;
+  height: 8px;
+}
+
+.loading-dots-container.w-4 .loading-dot {
+  width: 10px;
+  height: 10px;
+}
+
+/* Ensure dots don't overlap on small screens */
+@media (max-width: 640px) {
+  .loading-dots-container {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .loading-dot {
+    width: 3px;
+    height: 3px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .loading-dot {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Loading spinner */
+.spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Animation classes for sponsorship page */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
